@@ -1,36 +1,39 @@
 
 import { Button } from '@/components/ui/button';
 import { Check } from 'lucide-react';
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const PricingSection = () => {
+  const { t } = useLanguage();
+  
   const tiers = [
     {
-      name: "Free",
-      price: "0",
-      description: "Perfect for trying out Slix",
+      name: t("pricing.free.title"),
+      price: t("pricing.free.price"),
+      description: t("pricing.free.description"),
       features: [
-        "5 AI presentations per month",
-        "Basic export to PDF",
-        "Standard themes",
-        "Public presentations only",
-        "Community support"
+        t("pricing.free.features.1"),
+        t("pricing.free.features.2"),
+        t("pricing.free.features.3"),
+        t("pricing.free.features.4"),
+        t("pricing.free.features.5")
       ],
-      cta: "Get Started",
+      cta: t("pricing.free.cta"),
       popular: false
     },
     {
-      name: "Pro",
-      price: "19",
-      description: "For professionals and educators",
+      name: t("pricing.pro.title"),
+      price: t("pricing.pro.price"),
+      description: t("pricing.pro.description"),
       features: [
-        "Unlimited AI presentations",
-        "Advanced PDF and PPT exports",
-        "Premium themes library",
-        "Private presentations",
-        "Edit generated slides",
-        "Priority support"
+        t("pricing.pro.features.1"),
+        t("pricing.pro.features.2"),
+        t("pricing.pro.features.3"),
+        t("pricing.pro.features.4"),
+        t("pricing.pro.features.5"),
+        t("pricing.pro.features.6")
       ],
-      cta: "Start Free Trial",
+      cta: t("pricing.pro.cta"),
       popular: true
     }
   ];
@@ -41,9 +44,9 @@ const PricingSection = () => {
       
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("pricing.title")}</h2>
           <p className="text-xl text-white/70 max-w-2xl mx-auto">
-            Start for free, upgrade when you need more power
+            {t("pricing.subtitle")}
           </p>
         </div>
         
@@ -59,7 +62,7 @@ const PricingSection = () => {
             >
               {tier.popular && (
                 <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center py-2 font-medium">
-                  Most Popular
+                  {t("pricing.pro.label")}
                 </div>
               )}
               
@@ -97,7 +100,7 @@ const PricingSection = () => {
         </div>
         
         <div className="mt-16 text-center text-white/60 max-w-2xl mx-auto">
-          <p>All plans include core features like Gemini AI-powered slide generation, built-in presentation viewer, and continuous updates. Need custom enterprise solutions? <a href="#" className="text-purple-400 underline hover:text-purple-300">Contact our sales team</a>.</p>
+          <p>{t("pricing.note")} <a href="#" className="text-purple-400 underline hover:text-purple-300">{t("pricing.contactSales")}</a>.</p>
         </div>
       </div>
     </section>

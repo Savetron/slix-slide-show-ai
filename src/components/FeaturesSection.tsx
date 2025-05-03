@@ -1,37 +1,40 @@
 
 import { Check, Settings, FileText, Zap, Eye, Download, Palette } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const FeaturesSection = () => {
+  const { t } = useLanguage();
+  
   const features = [
     {
       icon: <Zap className="w-6 h-6" />,
-      title: "AI-powered slide generation",
-      description: "Enter your topic and watch as Gemini AI creates a complete, well-structured presentation."
+      title: t("features.ai.title"),
+      description: t("features.ai.description")
     },
     {
       icon: <FileText className="w-6 h-6" />,
-      title: "No need to learn markdown or Slidev",
-      description: "Our system handles all the technical details so you can focus on your content."
+      title: t("features.noMarkdown.title"),
+      description: t("features.noMarkdown.description")
     },
     {
       icon: <Eye className="w-6 h-6" />,
-      title: "Built-in live presentation viewer",
-      description: "Present directly from Slix with our integrated viewer - no need for external tools."
+      title: t("features.viewer.title"),
+      description: t("features.viewer.description")
     },
     {
       icon: <Download className="w-6 h-6" />,
-      title: "Export as PDF or keep it online",
-      description: "Flexibility to download your presentation or keep it accessible online."
+      title: t("features.export.title"),
+      description: t("features.export.description")
     },
     {
       icon: <Palette className="w-6 h-6" />,
-      title: "Custom themes (coming soon)",
-      description: "Choose from a variety of professional themes or create your own for a custom look."
+      title: t("features.themes.title"),
+      description: t("features.themes.description")
     },
     {
       icon: <Settings className="w-6 h-6" />,
-      title: "Advanced customization options",
-      description: "Fine-tune your presentation with simple editing tools and real-time updates."
+      title: t("features.customization.title"),
+      description: t("features.customization.description")
     }
   ];
 
@@ -39,9 +42,9 @@ const FeaturesSection = () => {
     <section id="features" className="py-24 relative">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Powerful Features</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("features.title")}</h2>
           <p className="text-xl text-white/70 max-w-2xl mx-auto">
-            Everything you need to create professional presentations in minutes
+            {t("features.subtitle")}
           </p>
         </div>
         

@@ -1,9 +1,15 @@
 
 import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { language, setLanguage, t } = useLanguage();
   const year = new Date().getFullYear();
+
+  const toggleLanguage = () => {
+    setLanguage(language === "en" ? "tr" : "en");
+  };
 
   return (
     <footer className="py-12 bg-gray-900/50 border-t border-white/10">
@@ -15,14 +21,13 @@ const Footer = () => {
                 Slix
               </span>
               <span className="text-sm text-white/50">
-                AI Presentation Generator
+                {t("footer.tag")}
               </span>
             </div>
             <p className="text-white/70 mb-6 max-w-md">
-              Create stunning presentations instantly with our AI-powered platform. 
-              No design skills required, just enter your topic and let the magic happen.
+              {t("footer.description")}
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 mb-4">
               <Button variant="ghost" size="icon" className="rounded-full bg-white/5 hover:bg-white/10">
                 <Twitter className="h-5 w-5" />
               </Button>
@@ -36,37 +41,45 @@ const Footer = () => {
                 <Linkedin className="h-5 w-5" />
               </Button>
             </div>
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="text-white/70 hover:bg-white/10"
+              onClick={toggleLanguage}
+            >
+              {language === "en" ? "TR" : "EN"}
+            </Button>
           </div>
           
           <div>
-            <h3 className="font-semibold mb-4 text-lg">Product</h3>
+            <h3 className="font-semibold mb-4 text-lg">{t("footer.product")}</h3>
             <ul className="space-y-3">
-              <li><a href="#features" className="text-white/70 hover:text-white transition-colors">Features</a></li>
-              <li><a href="#pricing" className="text-white/70 hover:text-white transition-colors">Pricing</a></li>
-              <li><a href="#" className="text-white/70 hover:text-white transition-colors">Roadmap</a></li>
-              <li><a href="#" className="text-white/70 hover:text-white transition-colors">Request a feature</a></li>
+              <li><a href="#features" className="text-white/70 hover:text-white transition-colors">{t("footer.features")}</a></li>
+              <li><a href="#pricing" className="text-white/70 hover:text-white transition-colors">{t("footer.pricing")}</a></li>
+              <li><a href="#" className="text-white/70 hover:text-white transition-colors">{t("footer.roadmap")}</a></li>
+              <li><a href="#" className="text-white/70 hover:text-white transition-colors">{t("footer.requestFeature")}</a></li>
             </ul>
           </div>
           
           <div>
-            <h3 className="font-semibold mb-4 text-lg">Company</h3>
+            <h3 className="font-semibold mb-4 text-lg">{t("footer.company")}</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-white/70 hover:text-white transition-colors">About</a></li>
-              <li><a href="#" className="text-white/70 hover:text-white transition-colors">Blog</a></li>
-              <li><a href="#" className="text-white/70 hover:text-white transition-colors">Careers</a></li>
-              <li><a href="#" className="text-white/70 hover:text-white transition-colors">Contact</a></li>
+              <li><a href="#" className="text-white/70 hover:text-white transition-colors">{t("footer.about")}</a></li>
+              <li><a href="#" className="text-white/70 hover:text-white transition-colors">{t("footer.blog")}</a></li>
+              <li><a href="#" className="text-white/70 hover:text-white transition-colors">{t("footer.careers")}</a></li>
+              <li><a href="#" className="text-white/70 hover:text-white transition-colors">{t("footer.contact")}</a></li>
             </ul>
           </div>
         </div>
         
         <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
           <div className="text-white/50 text-sm mb-4 md:mb-0">
-            © {year} Slix AI. All rights reserved.
+            {t("footer.copyright").replace("2025", year.toString())}
           </div>
           <div className="flex space-x-6">
-            <a href="#" className="text-white/70 text-sm hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="text-white/70 text-sm hover:text-white transition-colors">Terms of Service</a>
-            <a href="#" className="text-white/70 text-sm hover:text-white transition-colors">Cookie Policy</a>
+            <a href="#" className="text-white/70 text-sm hover:text-white transition-colors">{t("footer.privacyPolicy")}</a>
+            <a href="#" className="text-white/70 text-sm hover:text-white transition-colors">{t("footer.termsOfService")}</a>
+            <a href="#" className="text-white/70 text-sm hover:text-white transition-colors">{t("footer.cookiePolicy")}</a>
           </div>
         </div>
       </div>

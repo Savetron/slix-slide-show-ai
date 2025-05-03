@@ -1,22 +1,25 @@
 
 import { ArrowRight } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HowItWorks = () => {
+  const { t } = useLanguage();
+  
   const steps = [
     {
       number: 1,
-      title: "Enter your topic",
-      description: "Simply input your presentation topic or outline - that's all the AI needs to get started."
+      title: t("howItWorks.step1.title"),
+      description: t("howItWorks.step1.description")
     },
     {
       number: 2,
-      title: "AI generates Slidev markdown",
-      description: "Our Gemini AI creates presentation content and formats it perfectly as Slidev markdown."
+      title: t("howItWorks.step2.title"),
+      description: t("howItWorks.step2.description")
     },
     {
       number: 3,
-      title: "View and control the presentation instantly",
-      description: "Your presentation renders immediately in the browser. Present, edit, or export - all in one place."
+      title: t("howItWorks.step3.title"),
+      description: t("howItWorks.step3.description")
     }
   ];
 
@@ -24,9 +27,9 @@ const HowItWorks = () => {
     <section id="how-it-works" className="py-24 bg-gradient-to-b from-background/0 to-background/100 relative">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">How Slix Works</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("howItWorks.title")}</h2>
           <p className="text-xl text-white/70 max-w-2xl mx-auto">
-            From concept to presentation in minutes, not hours. No design skills needed.
+            {t("howItWorks.subtitle")}
           </p>
         </div>
         

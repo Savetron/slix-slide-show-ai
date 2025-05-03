@@ -1,8 +1,11 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HeroSection = () => {
+  const { t } = useLanguage();
+  
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 pb-20 overflow-hidden">
       <div className="hero-glow top-1/2 left-1/4 transform -translate-x-1/2 -translate-y-1/2 animate-pulse-glow"></div>
@@ -11,11 +14,11 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-            Create Stunning Presentations with AI – Instantly.
+            {t("hero.title")}
           </h1>
           
           <p className="text-xl md:text-2xl text-white/80 mb-10 max-w-3xl mx-auto">
-            Slix generates fully designed, markdown-based slide decks using Gemini AI and displays them live within your browser.
+            {t("hero.subtitle")}
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -23,14 +26,14 @@ const HeroSection = () => {
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-6 text-lg rounded-lg shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all w-64"
               style={{ height: 'auto' }}
             >
-              Try it Free
+              {t("hero.cta.primary")}
             </Button>
             <Button 
               variant="outline" 
               className="border-white/20 hover:bg-white/10 text-white font-semibold px-8 py-6 text-lg rounded-lg w-64"
               style={{ height: 'auto' }}
             >
-              See Example <ArrowRight className="ml-2 h-5 w-5" />
+              {t("hero.cta.secondary")} <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </div>
         </div>
